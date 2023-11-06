@@ -7,7 +7,7 @@ pipeline {
                 script {
                     // Build Docker images
                     sh 'docker rmi -f frontappp || true'
-                    sh 'docker build -t oussema97/Frontappp -f Dockerfile.txt .'
+                    sh 'docker build -t oussema97/frontappp -f Dockerfile.txt .'
                     sh 'docker images'
                 }
             }
