@@ -6,8 +6,8 @@ pipeline {
             steps {
                 script {
                     // Build Docker images
-                    sh 'docker rmi -f Frontappp || true'
-                    sh 'docker build -t oussema97/Frontappp -f DockerFile.txt .'
+                    sh 'docker rmi -f frontappp || true'
+                    sh 'docker build -t oussema97/Frontappp -f Dockerfile.txt .'
                     sh 'docker images'
                 }
             }
@@ -18,7 +18,7 @@ pipeline {
             withDockerRegistry([credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v2/']) {
                 sh 'docker login -u oussema97 -p leilehaelaallah123'
                 //sh 'docker tag springappp:latest oussema97/sprigappp'
-                sh 'docker push oussema97/Frontappp:latest'
+                sh 'docker push oussema97/frontappp:latest'
             }
         }
     }

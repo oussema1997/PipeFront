@@ -2,7 +2,7 @@ version: '3'
 
 services:
   frontend:
-    image: oussema97/Frontappp:latest
+    image: oussema97/frontappp:latest
     container_name: angular-app
     ports:
       - "80:80"
