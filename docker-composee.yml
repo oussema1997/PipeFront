@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  frontend:
+    image: oussema97/Frontappp:latest
+    container_name: angular-app
+    ports:
+      - "80:80"
+    expose:
+      - 80
+    depends_on:
+      - backend
+      
+  nginx-exporter:
+    image: "nginx/nginx-prometheus-exporter:latest"
+    command: ["-nginx.scrape-uri=http://angular-app/metrics"]  
+    ports:
+      - "9113:9113"
+    depends_on:
+      - frontend
